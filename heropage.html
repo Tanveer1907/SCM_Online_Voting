@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Voting System</title>
+  <link rel="stylesheet" href="styles.css"/>
+  
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand">Online Voting System</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about-us">About Us</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="login.html" class="sign-in-btn">Sign In</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-left">
+        <h1>Simple. Secure. Smart Voting.</h1>
+        <p>Create polls in seconds, vote anonymously, and see instant results.</p>
+        <button class="get-started-btn" onclick="window.location.href='login.html'">Get Started</button>
+
+      </div>
+      <div class="hero-right">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <h2 id="votes">0</h2>
+            <p>Votes Cast</p>
+          </div>
+          <div class="stat-box">
+            <h2 id="polls">0</h2>
+            <p>Polls Created</p>
+          </div>
+          <div class="stat-box">
+            <h2 id="users">0</h2>
+            <p>Active Users</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Demo Video -->
+    <div class="demo-section">
+      <h3>See How It Works</h3>
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- Popular Polls Section -->
+  <section class="popular-polls">
+    <h2>Popular Polls</h2>
+    <div class="poll-cards">
+      <div class="poll-card">
+        <h4>Best Programming Language 2025</h4>
+        <p>Used by 4,320 voters</p>
+      </div>
+      <div class="poll-card">
+        <h4>College Fest Theme Selection</h4>
+        <p>Used by 2,018 voters</p>
+      </div>
+      <div class="poll-card">
+        <h4>Mass Bunk Tomorrow?</h4>
+        <p>Used by 785 voters</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about-us" class="about">
+    <h2>About Us</h2>
+    <p>Our platform enables you to create customizable polls for elections, group decisions, and more. It’s secure, fast, and free to use. Start a poll and invite your friends or colleagues with a simple link.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial">
+        <p>"Super easy to create a poll and share it with my team. Love the simplicity!"</p>
+        <h4>- Priya R.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Very useful for college elections. Transparent and fair."</p>
+        <h4>- Ankit M.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"I used it to decide dinner plans with friends. Perfect tool for quick votes!"</p>
+        <h4>- Sarah L.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Online Voting System. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
