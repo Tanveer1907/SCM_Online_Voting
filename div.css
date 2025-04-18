@@ -224,7 +224,7 @@ main {
 
 .why-vote .image img {
     max-width: 300px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .why-vote .text {
