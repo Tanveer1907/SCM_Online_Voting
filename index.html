@@ -6,12 +6,6 @@
     <title>Voting Site</title>
     <link rel="stylesheet" href="index.css">
 </head>
-<script>
-    if (!localStorage.getItem('user')) {
-      window.location.href = "login.html";
-    }
-  </script> 
-  
 <body>
     <!-- Navigation Bar -->
     <nav>
@@ -53,45 +47,44 @@
                 <h2>Poll Name 1</h2>
                 <p>Duration: 2 days</p>
                 <p>Votes: 120</p>
-                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+                <button>Start Poll</button>
             </div>
             <div class="poll">
                 <img src="https://via.placeholder.com/300x200" alt="Poll 2 Image">
                 <h2>Poll Name 2</h2>
                 <p>Duration: 3 days</p>
                 <p>Votes: 85</p>
-                <button onclick="window.location.href='poll.html?poll=2'">Open Poll 2</button>
+                <button>Start Poll</button>
             </div>
             <div class="poll">
                 <img src="https://via.placeholder.com/300x200" alt="Poll 3 Image">
                 <h2>Poll Name 3</h2>
                 <p>Duration: 1 day</p>
                 <p>Votes: 200</p>
-                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+                <button>Start Poll</button>
             </div>
             <div class="poll">
                 <img src="https://via.placeholder.com/300x200" alt="Poll 4 Image">
                 <h2>Poll Name 4</h2>
                 <p>Duration: 5 days</p>
                 <p>Votes: 50</p>
-                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+                <button>Start Poll</button>
             </div>
             <div class="poll">
                 <img src="https://via.placeholder.com/300x200" alt="Poll 5 Image">
                 <h2>Poll Name 5</h2>
                 <p>Duration: 7 days</p>
                 <p>Votes: 300</p>
-                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+                <button>Start Poll</button>
             </div>
             <div class="poll">
                 <img src="https://via.placeholder.com/300x200" alt="Poll 6 Image">
                 <h2>Poll Name 6</h2>
                 <p>Duration: 4 days</p>
                 <p>Votes: 150</p>
-                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+                <button>Start Poll</button>
             </div>
         </section>
-        
 
         <!-- Why Every Vote Matters Section -->
         <section class="why-vote" id="why-vote">
@@ -107,21 +100,6 @@
         </section>
     </main>
 
-    <script src="index.js">
-    if (!localStorage.getItem('user')) {
-        window.location.href = "login.html";
-      }
-      // Example for manual login or Google login callback
-localStorage.setItem('user', JSON.stringify({ name, email })); // or Google user object
-window.location.href = "div.html";
-localStorage.removeItem('user');
-window.location.href = "login.html";
-function logout() {
-  localStorage.removeItem('user');
-  window.location.href = "login.html";
-}
-
-
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
