@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Site</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+  
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>Voting Site</h1>
+        <ul class="nav-links">
+            <li><a href="#polls">Polls</a></li>
+            <li><a href="#why-vote">Why Vote</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Left Rectangular Div -->
+    <div class="left-rectangular-div">
+        <h2>Announcements</h2>
+        <div class="lorem-item">
+            <h3>Lorem Component 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+        </div>
+        <div class="lorem-item">
+            <h3>Lorem Component 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+        </div>
+        <div class="lorem-item">
+            <h3>Lorem Component 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+        </div>
+        <div class="lorem-item">
+            <h3>Lorem Component 4</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Polls Section -->
+        <section class="polls" id="polls">
+            <div class="poll">
+                <img src="https://via.placeholder.com/300x200" alt="Poll 1 Image">
+                <h2>Poll Name 1</h2>
+                <p>Duration: 2 days</p>
+                <p>Votes: 120</p>
+                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+            </div>
+            <div class="poll">
+                <img src="https://via.placeholder.com/300x200" alt="Poll 2 Image">
+                <h2>Poll Name 2</h2>
+                <p>Duration: 3 days</p>
+                <p>Votes: 85</p>
+                <button onclick="window.location.href='poll.html?poll=2'">Open Poll 2</button>
+            </div>
+            <div class="poll">
+                <img src="https://via.placeholder.com/300x200" alt="Poll 3 Image">
+                <h2>Poll Name 3</h2>
+                <p>Duration: 1 day</p>
+                <p>Votes: 200</p>
+                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+            </div>
+            <div class="poll">
+                <img src="https://via.placeholder.com/300x200" alt="Poll 4 Image">
+                <h2>Poll Name 4</h2>
+                <p>Duration: 5 days</p>
+                <p>Votes: 50</p>
+                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+            </div>
+            <div class="poll">
+                <img src="https://via.placeholder.com/300x200" alt="Poll 5 Image">
+                <h2>Poll Name 5</h2>
+                <p>Duration: 7 days</p>
+                <p>Votes: 300</p>
+                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+            </div>
+            <div class="poll">
+                <img src="https://via.placeholder.com/300x200" alt="Poll 6 Image">
+                <h2>Poll Name 6</h2>
+                <p>Duration: 4 days</p>
+                <p>Votes: 150</p>
+                <button onclick="window.location.href='poll.html?poll=1'">Open Poll 1</button>
+            </div>
+        </section>
+        
+
+        <!-- Why Every Vote Matters Section -->
+        <section class="why-vote" id="why-vote">
+            <h2>Why Every Vote Matters</h2>
+            <div class="content">
+                <div class="image">
+                    <img src="https://via.placeholder.com/300x200" alt="Voting Image">
+                </div>
+                <div class="text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="index.js">
+    if (!localStorage.getItem('user')) {
+        window.location.href = "login.html";
+      }
+      // Example for manual login or Google login callback
+localStorage.setItem('user', JSON.stringify({ name, email })); // or Google user object
+window.location.href = "div.html";
+localStorage.removeItem('user');
+window.location.href = "login.html";
+function logout() {
+  localStorage.removeItem('user');
+  window.location.href = "login.html";
+}
+
+
+    </script>
+</body>
+</html>
