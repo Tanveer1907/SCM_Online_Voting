@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Teacher Poll</title>
+    <link rel="stylesheet" href="poll_3.css">
+</head>
+<body>
+    <!-- Poll Section -->
+    <section class="quiz-section">
+        <h1>Best Teacher Award</h1>
+        <p>Vote for the teacher who inspired you the most!</p>
+        <div class="quiz">
+            <p>Who deserves the Best Teacher Award?</p>
+            <div class="options">
+                <button data-option="Mr. A">Mr. A</button>
+                <button data-option="Ms. B">Ms. B</button>
+                <button data-option="Dr. C">Dr. C</button>
+                <button data-option="Mrs. D">Mrs. D</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="analysis-section" id="analysisSection" style="display: none;">
+        <h2>Poll Results</h2>
+        <div class="analysis-content">
+            <!-- Graph Section -->
+            <div class="graph">
+                <canvas id="votesGraph"></canvas>
+            </div>
+            <!-- Textual Analysis Section -->
+            <div class="text-analysis">
+                <p id="mrAVotes">Mr. A - 0 votes</p>
+                <p id="msBVotes">Ms. B - 0 votes</p>
+                <p id="drCVotes">Dr. C - 0 votes</p>
+                <p id="mrsDVotes">Mrs. D - 0 votes</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="poll_3.js"></script>
+</body>
+</html>
