@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Page</title>
+    <link rel="stylesheet" href="poll_2.css">
+</head>
+<body>
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <h1>Favorite Language Poll</h1>
+        <p>Vote for your favorite language and see how others have voted!</p>
+        <div class="quiz">
+            <p>What is your favorite language?</p>
+            <div class="options">
+                <button data-option="English">English</button>
+                <button data-option="Hindi">Hindi</button>
+                <button data-option="Spanish">Spanish</button>
+                <button data-option="French">French</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="analysis-section" id="analysisSection" style="display: none;">
+        <h2>Analysis</h2>
+        <div class="analysis-content">
+            <!-- Graph Section -->
+            <div class="graph">
+                <canvas id="votesGraph"></canvas>
+            </div>
+            <!-- Textual Analysis Section -->
+            <div class="text-analysis">
+                <p id="englishVotes">English - 0 votes</p>
+                <p id="hindiVotes">Hindi - 0 votes</p>
+                <p id="spanishVotes">Spanish - 0 votes</p>
+                <p id="frenchVotes">French - 0 votes</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="poll_2.js"></script>
+</body>
+</html>
