@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Page</title>
+    <link rel="stylesheet" href="poll5.css">
+</head>
+<body>
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <h1>CR Elections</h1>
+        <p>Vote for the best candidate!</p>
+        <div class="quiz">
+            <p>Choose your candidate</p>
+            <div class="options">
+                <button data-option="English">A</button>
+                <button data-option="Hindi">B</button>
+                <button data-option="Spanish">C</button>
+                <button data-option="French">D</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="analysis-section" id="analysisSection" style="display: none;">
+        <h2>Analysis</h2>
+        <div class="analysis-content">
+            <!-- Graph Section -->
+            <div class="graph">
+                <canvas id="votesGraph"></canvas>
+            </div>
+            <!-- Textual Analysis Section -->
+            <div class="text-analysis">
+                <p id="englishVotes">A - 0 votes</p>
+                <p id="hindiVotes">B - 0 votes</p>
+                <p id="spanishVotes">C - 0 votes</p>
+                <p id="frenchVotes">D - 0 votes</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="poll5.js"></script>
+</body>
+</html>
