@@ -1,8 +1,8 @@
 let votes = {
-    "Mr. A": 5,
-    "Ms. B": 3,
-    "Dr. C": 4,
-    "Mrs. D": 2
+    "Mr. A": 0,
+    "Ms. B": 0,
+    "Dr. C": 0,
+    "Mrs. D": 0
 };
 
 let hasVoted = false;
