@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Quiz Section */
+.quiz-section {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    width: 100%;  
+}
+
+.quiz-section h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.quiz-section p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.quiz {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.options button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #007BFF;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.options button:hover {
+    background-color: #0056b3;
+}
+
+.options button:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+    border: 1px solid #ddd;
+}
+
+/* Analysis Section */
+.analysis-section {
+    padding: 2rem;
+    background-color: #f4f4f4;
+}
+
+.analysis-section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.analysis-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.graph {
+    flex: 1;
+}
+
+.text-analysis {
+    flex: 1;
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
