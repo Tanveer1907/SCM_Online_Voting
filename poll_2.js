@@ -1,9 +1,9 @@
 // Initial vote data
 let votes = {
-    English: 5,
-    Hindi: 2,
-    Spanish: 3,
-    French: 1
+    C: 120,
+    "C++": 150,
+    Python: 200,
+    Java: 180
 };
 
 // Prevent multiple votes
@@ -48,10 +48,10 @@ function updateGraph() {
 function updateTextualAnalysis() {
     const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
 
-    document.getElementById('englishVotes').textContent = `English - ${votes.English} votes`;
-    document.getElementById('hindiVotes').textContent = `Hindi - ${votes.Hindi} votes`;
-    document.getElementById('spanishVotes').textContent = `Spanish - ${votes.Spanish} votes`;
-    document.getElementById('frenchVotes').textContent = `French - ${votes.French} votes`;
+    document.getElementById('cVotes').textContent = `C - ${votes.C} votes`;
+    document.getElementById('cppVotes').textContent = `C++ - ${votes["C++"]} votes`;
+    document.getElementById('pythonVotes').textContent = `Python - ${votes.Python} votes`;
+    document.getElementById('javaVotes').textContent = `Java - ${votes.Java} votes`;
 
     document.querySelectorAll('.options button').forEach(button => {
         const option = button.getAttribute('data-option');
