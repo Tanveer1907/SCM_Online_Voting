@@ -2,7 +2,8 @@ let votes = {
     "Mr. A": 0,
     "Ms. B": 0,
     "Dr. C": 0,
-    "Mrs. D": 0
+    "Mrs. D": 0,
+    "Mrs. E": 0
 };
 
 let hasVoted = false;
@@ -44,6 +45,7 @@ function updateTextualAnalysis() {
     document.getElementById('msBVotes').textContent = `Ms. B - ${votes["Ms. B"]} votes`;
     document.getElementById('drCVotes').textContent = `Dr. C - ${votes["Dr. C"]} votes`;
     document.getElementById('mrsDVotes').textContent = `Mrs. D - ${votes["Mrs. D"]} votes`;
+    document.getElementById('mrsEVotes').textContent = `Mrs. E - ${votes["Mrs. E"]} votes`;
 
     document.querySelectorAll('.options button').forEach(button => {
         const option = button.getAttribute('data-option');
