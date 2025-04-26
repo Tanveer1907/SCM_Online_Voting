@@ -3,43 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poll Page</title>
+    <title>Feedback Poll</title>
     <link rel="stylesheet" href="poll6.css">
 </head>
 <body>
-    <section class="quiz-section">
-        <h1>Teacher Feedback</h1>
-        <p>Be Honest and give your feedback</p>
-        <div class="quiz">
+    <div class="poll-container">
+        <!-- Quiz Section -->
+        <section class="quiz-section">
+            <h1>Be Honest and give your feedback</h1>
             <p>How effective do you find the teacher's explanation of difficult concepts?</p>
-            <div class="options">
-                <button data-option="A">Very Effective</button>
-                <button data-option="B">Somewhat Effective</button>
-                <button data-option="C">Not very Effective</button>
-                <button data-option="D">Not effective at all</button>
+            <div class="quiz">
+                <p>Choose your option:</p>
+                <div class="options">
+                    <button data-option="A">A</button>
+                    <button data-option="B">B</button>
+                    <button data-option="C">C</button>
+                    <button data-option="D">D</button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Analysis Section -->
-    <section class="analysis-section" id="analysisSection" style="display: none;">
-        <h2>Analysis</h2>
-        <div class="analysis-content">
-            <!-- Graph Section -->
-            <div class="graph">
-                <canvas id="votesGraph"></canvas>
+        <!-- Analysis Section -->
+        <section class="analysis-section" id="analysisSection" style="display: none;">
+            <h2>Analysis</h2>
+            <div class="analysis-content">
+                <!-- Graph Section -->
+                <div class="graph">
+                    <canvas id="votesGraph"></canvas>
+                </div>
+                <!-- Textual Analysis Section -->
+                <div class="text-analysis">
+                    <p id="aVotes">A - 0 votes</p>
+                    <p id="bVotes">B - 0 votes</p>
+                    <p id="cVotes">C - 0 votes</p>
+                    <p id="dVotes">D - 0 votes</p>
+                </div>
             </div>
-            <!-- Textual Analysis Section -->
-            <div class="text-analysis">
-                <p id="AVotes">A - 0 votes</p>
-                <p id="BVotes">B - 0 votes</p>
-                <p id="CVotes">C - 0 votes</p>
-                <p id="DVotes">D - 0 votes</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="poll5.js"></script>
+    <script src="poll6.js"></script>
 </body>
 </html>
