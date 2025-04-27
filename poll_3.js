@@ -6,71 +6,90 @@ let votes = {
     "Mrs. E": 0
 };
 
+let chart = null;
 let hasVoted = false;
 
-function updateGraph() {
-    const data = {
-        labels: Object.keys(votes),
-        datasets: [{
-            label: 'Number of Votes',
-            data: Object.values(votes),
-            backgroundColor: ['#007BFF', '#28A745', '#FFC107', '#DC3545'],
-            borderColor: ['#0056b3', '#1e7e34', '#d39e00', '#bd2130'],
-            borderWidth: 1
-        }]
-    };
-
-    const config = {
+// Initialize chart
+function createChart() {
+    const ctx = document.getElementById('votesGraph').getContext('2d');
+    chart = new Chart(ctx, {
         type: 'bar',
-        data: data,
+        data: {
+            labels: Object.keys(votes),
+            datasets: [{
+                label: 'Votes',
+                data: Object.values(votes),
+                backgroundColor: [
+                    '#43c6ac', '#191654', '#ff6b6b', '#4ecdc4', '#6c5ce7'
+                ],
+                borderWidth: 0
+            }]
+        },
         options: {
             responsive: true,
-            plugins: {
-                legend: { display: false }
-            },
+            plugins: { legend: { display: false } },
             scales: {
-                y: { beginAtZero: true }
+                y: { 
+                    beginAtZero: true,
+                    ticks: { precision: 0 }
+                }
             }
         }
-    };
-
-    const ctx = document.getElementById('votesGraph').getContext('2d');
-    new Chart(ctx, config);
-}
-
-function updateTextualAnalysis() {
-    const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
-
-    document.getElementById('mrAVotes').textContent = `Mr. A - ${votes["Mr. A"]} votes`;
-    document.getElementById('msBVotes').textContent = `Ms. B - ${votes["Ms. B"]} votes`;
-    document.getElementById('drCVotes').textContent = `Dr. C - ${votes["Dr. C"]} votes`;
-    document.getElementById('mrsDVotes').textContent = `Mrs. D - ${votes["Mrs. D"]} votes`;
-    document.getElementById('mrsEVotes').textContent = `Mrs. E - ${votes["Mrs. E"]} votes`;
-
-    document.querySelectorAll('.options button').forEach(button => {
-        const option = button.getAttribute('data-option');
-        const percentage = ((votes[option] / totalVotes) * 100).toFixed(2);
-        button.textContent = `${option} - ${percentage}%`;
-        button.style.cursor = 'default';
     });
 }
 
-document.querySelectorAll('.options button').forEach(button => {
-    button.addEventListener('click', () => {
-        if (hasVoted) {
-            alert('You have already voted!');
+function updateAnalysis() {
+    const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+    
+    // Update text analysis
+    document.getElementById('votesA').textContent = `Mr. A - ${votes["Mr. A"]} votes`;
+    document.getElementById('votesB').textContent = `Ms. B - ${votes["Ms. B"]} votes`;
+    document.getElementById('votesC').textContent = `Dr. C - ${votes["Dr. C"]} votes`;
+    document.getElementById('votesD').textContent = `Mrs. D - ${votes["Mrs. D"]} votes`;
+    document.getElementById('votesE').textContent = `Mrs. E - ${votes["Mrs. E"]} votes`;
+
+    // Update button percentages
+    document.querySelectorAll('.options button').forEach(button => {
+        const option = button.dataset.option;
+        const percentage = totalVotes > 0 
+            ? `${((votes[option]/totalVotes)*100).toFixed(1)}%` 
+            : '0%';
+        button.textContent = `${option} (${percentage})`;
+    });
+
+    // Update chart data
+    if(chart) {
+        chart.data.datasets[0].data = Object.values(votes);
+        chart.update();
+    }
+}
+
+// Handle voting
+document.querySelectorAll('.options button').forEach(btn => {
+    btn.addEventListener('click', function() {
+        if(hasVoted) {
+            alert('You can only vote once!');
             return;
         }
-
-        const selectedOption = button.getAttribute('data-option');
-        votes[selectedOption]++;
+        
+        const option = this.dataset.option;
+        votes[option]++;
         hasVoted = true;
-
-        document.querySelectorAll('.options button').forEach(btn => btn.disabled = true);
-
+        
+        // Show analysis section
         document.getElementById('analysisSection').style.display = 'block';
-
-        updateGraph();
-        updateTextualAnalysis();
+        
+        // Initial chart creation if needed
+        if(!chart) createChart();
+        
+        // Update UI
+        updateAnalysis();
+        
+        // Disable buttons and add visual feedback
+        document.querySelectorAll('.options button').forEach(b => {
+            b.disabled = true;
+            b.style.background = '#e3e3e3';
+            b.style.transform = 'none';
+        });
     });
 });
