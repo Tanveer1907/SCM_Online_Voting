@@ -1,3 +1,66 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+.split-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.left-pane {
+  flex: 1;
+  position: relative;
+  background: linear-gradient(to bottom right, #e3f2fd 60%, #b2dfdb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-overlay {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.voting-bg {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+.quote {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  background: rgba(255,255,255,0.7);
+  padding: 1.2rem 2rem;
+  border-radius: 10px;
+  font-style: italic;
+  color: #333;
+  max-width: 80%;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.quote-author {
+  font-weight: bold;
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+.right-pane {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafc;
+}
+
 .login-card {
   background: #fff;
   border-radius: 22px;
@@ -15,6 +78,7 @@
   align-items: center;
   margin-bottom: 1.3rem;
 }
+
 .login-brand img {
   width: 48px;
   margin-bottom: 0.3rem;
@@ -33,6 +97,7 @@
   overflow: hidden;
   background: #f0f8ff;
 }
+
 .tab-buttons button {
   flex: 1;
   padding: 0.7rem 0;
@@ -44,6 +109,7 @@
   font-weight: 600;
   transition: background 0.2s, color 0.2s;
 }
+
 .tab-buttons button.active {
   background: #007bff;
   color: #fff;
@@ -57,12 +123,15 @@
   border: 1px solid #cfd8dc;
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
+  position: relative;
 }
+
 .input-icon {
   color: #007bff;
   font-size: 1.2rem;
   margin-right: 0.6rem;
 }
+
 .input-group input {
   border: none;
   background: transparent;
@@ -72,8 +141,57 @@
   padding: 0.6rem 0;
 }
 
+.input-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px #e3f2fd;
+}
+
+.show-hide {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.97rem;
+}
+
+.forgot-link {
+  color: #ff9800;
+  text-decoration: none;
+  font-size: 0.97rem;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.terms-label {
+  display: block;
+  text-align: left;
+  font-size: 0.97rem;
+  margin-bottom: 0.6rem;
+}
+
+.terms-label a {
+  color: #ff9800;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms-label a:hover {
+  text-decoration: underline;
+}
+
 .main-btn {
-  background: #007bff;
+  background: #ff9800;
   color: #fff;
   border: none;
   padding: 0.8rem 0;
@@ -84,9 +202,11 @@
   cursor: pointer;
   margin-top: 0.5rem;
   transition: background 0.2s;
+  font-family: inherit;
 }
+
 .main-btn:hover {
-  background: #0056b3;
+  background: #f57c00;
 }
 
 .divider {
@@ -95,6 +215,7 @@
   position: relative;
   height: 1px;
 }
+
 .divider span {
   position: absolute;
   left: 50%;
@@ -106,49 +227,26 @@
   transform: translateX(-50%);
 }
 
-.g_id_signin {
+.social-login {
   display: flex;
   justify-content: center;
-  margin: 0.5rem 0 0 0;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-@media (max-width: 500px) {
-  .login-card {
-    padding: 1.5rem 0.5rem;
-    margin: 1.5rem 0.5rem;
-  }
-  .login-brand h1 {
-    font-size: 1.1rem;
-  }
-}
-.form-error {
-  color: #d32f2f;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  min-height: 1.2em;
-}
-.input-group input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px #e3f2fd;
-}
-.show-hide {
-  background: none;
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   border: none;
-  color: #007bff;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   cursor: pointer;
-  font-size: 0.95rem;
-  margin-left: 0.5rem;
+  transition: background 0.2s;
+  padding: 0;
 }
-.visually-hidden {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-.form-error {
-  color: #d32f2f;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  min-height: 1.2em;
-}
+
+.social-btn img
