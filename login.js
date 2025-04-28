@@ -108,3 +108,56 @@ function parseJwt(token) {
   }).join(''));
   return JSON.parse(jsonPayload);
 }
+document.addEventListener('DOMContentLoaded', function() {
+  const signupPassword = document.getElementById('signupPassword');
+  const bar = document.getElementById('passwordStrengthBar');
+  const barContainer = document.getElementById('passwordStrengthContainer');
+  
+  if (signupPassword && bar && barContainer) {
+    // Show/hide bar on input
+    signupPassword.addEventListener('input', function() {
+      const val = signupPassword.value;
+      if (val.length > 0) {
+        barContainer.style.display = 'block';
+        const {percent, color} = getStrengthBar(val);
+        bar.style.width = percent;
+        bar.style.background = color;
+      } else {
+        barContainer.style.display = 'none';
+        bar.style.width = '0%';
+      }
+    });
+
+    // Hide bar when field loses focus and is empty
+    signupPassword.addEventListener('blur', function() {
+      if (signupPassword.value.length === 0) {
+        barContainer.style.display = 'none';
+        bar.style.width = '0%';
+      }
+    });
+
+    // Optional: Show bar on focus if value exists
+    signupPassword.addEventListener('focus', function() {
+      if (signupPassword.value.length > 0) {
+        barContainer.style.display = 'block';
+      }
+    });
+  }
+});
+
+function getStrengthBar(password) {
+  let score = 0;
+  if (password.length >= 8) score++;
+  if (/[A-Z]/.test(password)) score++;
+  if (/[a-z]/.test(password)) score++;
+  if (/\d/.test(password)) score++;
+  if (/[^A-Za-z0-9]/.test(password)) score++;
+
+  if (score <= 2) {
+    return {percent: "25%", color: "#d32f2f"};
+  } else if (score === 3 || score === 4) {
+    return {percent: "60%", color: "#fbc02d"};
+  } else {
+    return {percent: "100%", color: "#388e3c"};
+  }
+}
