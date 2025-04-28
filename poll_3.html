@@ -3,44 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Teacher Poll</title>
+    <title>Best Teacher Award Poll</title>
     <link rel="stylesheet" href="poll_3.css">
 </head>
 <body>
-    <!-- Poll Section -->
-    <section class="quiz-section">
-        <h1>Best Teacher Award</h1>
-        <p>Vote for the teacher who inspired you the most!</p>
-        <div class="quiz">
-            <p>Who deserves the Best Teacher Award?</p>
-            <div class="options">
-                <button data-option="Mr. A">Mr. A</button>
-                <button data-option="Ms. B">Ms. B</button>
-                <button data-option="Dr. C">Dr. C</button>
-                <button data-option="Mrs. D">Mrs. D</button>
-                <button data-option="Mrs. E">Mrs. E</button>
-            </div>
-        </div>
-    </section>
+    <div class="poll-container">
+        <!-- Poll Section -->
+        <section class="quiz-section">
+            <h1>Who deserves the Best Teacher Award?</h1>
+            <p>Vote for the teacher you think should receive the Best Teacher Award this year!</p>
+            <div class="quiz">
+                <p>Select your choice:</p>
+                
 
-    <!-- Analysis Section -->
-    <section class="analysis-section" id="analysisSection" style="display: none;">
-        <h2>Poll Results</h2>
-        <div class="analysis-content">
-            <!-- Graph Section -->
-            <div class="graph">
-                <canvas id="votesGraph"></canvas>
+                <div class="options">
+                    <button data-option="Mr. A">A</button>
+                    <button data-option="Ms. B">B</button>
+                    <button data-option="Dr. C">C</button>
+                    <button data-option="Mrs. D">D</button>
+                    <button data-option="Mrs. E">E</button>
+                </div>
             </div>
-            <!-- Textual Analysis Section -->
-            <div class="text-analysis">
-                <p id="mrAVotes">Mr. A - 0 votes</p>
-                <p id="msBVotes">Ms. B - 0 votes</p>
-                <p id="drCVotes">Dr. C - 0 votes</p>
-                <p id="mrsDVotes">Mrs. D - 0 votes</p>
-                <p id="mrsEVotes">Mrs. E - 0 votes</p>
+        </section>
+
+        <!-- Analysis Section -->
+        <section class="analysis-section" id="analysisSection" style="display: none;">
+            <h2>Analysis</h2>
+            <div class="analysis-content">
+                <!-- Graph Section -->
+                <div class="graph">
+                    <canvas id="votesGraph"></canvas>
+                </div>
+                <!-- Textual Analysis Section -->
+                <div class="text-analysis">
+                    <p id="votesA">A - 0 votes</p>
+                    <p id="votesB">B - 0 votes</p>
+                    <p id="votesC">C - 0 votes</p>
+                    <p id="votesD">D - 0 votes</p>
+                    <p id="votesE">E - 0 votes</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="poll_3.js"></script>
