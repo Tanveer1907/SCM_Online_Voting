@@ -62,6 +62,12 @@
             <input id="signupPassword" type="password" placeholder="Create a password" required />
             <button type="button" class="show-hide" onclick="togglePassword('signupPassword', this)">&#128065;</button>
           </div>
+          <!-- Password strength bar (initially hidden) -->
+          <div id="passwordStrengthContainer" class="password-strength-bar" style="display:none;">
+            <div id="passwordStrengthBar" class="strength-bar-inner"></div>
+          </div>
+          
+          
           <div class="input-group">
             <span class="input-icon">&#128274;</span>
             <input id="signupConfirmPassword" type="password" placeholder="Confirm your password" required />
