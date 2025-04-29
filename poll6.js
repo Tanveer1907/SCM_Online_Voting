@@ -1,8 +1,8 @@
 // Initial vote data
 let votes = {
-    A: 6,
-    B: 8,
-    C: 5,
+    A: 9,
+    B: 5,
+    C: 1,
     D: 4
 };
 

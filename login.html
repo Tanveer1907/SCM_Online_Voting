@@ -2,55 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Login / Sign Up - Voting Zone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Voting Zone - Login/Register</title>
   <link rel="stylesheet" href="styles_login.css" />
-  <script>
-    // Always allow access to login page; protect main page instead
-  </script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-<body class="login-bg">
-  <div class="login-card">
-    <div class="login-brand">
-      <img src="https://img.icons8.com/ios-filled/50/4a90e2/ballot.png" alt="Voting Icon" />
-      <h1>Online Voting Zone</h1>
+<body>
+  <div class="split-container">
+    <!-- Left: Voting-themed image and quote -->
+    <div class="left-pane">
+      <div class="background-overlay">
+        <img src="bg image.jpeg" alt="Online Voting" class="voting-bg" />
+      </div>
     </div>
-    <div class="tab-buttons">
-      <button id="loginTab" class="active" onclick="showTab('login')">Log In</button>
-      <button id="signupTab" onclick="showTab('signup')">Sign Up</button>
-    </div>
-    <div id="loginFormDiv">
-      <form id="loginForm" onsubmit="return handleLogin(event)">
-        <div class="input-group">
-          <span class="input-icon">@</span>
-          <input type="email" placeholder="Email Address" id="loginEmail" required autocomplete="email">
+    <!-- Right: Login/Register card -->
+    <div class="right-pane">
+      <div class="login-card">
+        <div class="login-brand">
+          <img src="voting logo.png" alt="Voting Logo" />
+          <h1>Online Voting Zone</h1>
         </div>
-        <div id="loginError" class="form-error"></div>
-        <button type="submit" class="main-btn">Log In</button>
-      </form>
-    </div>
-    <div id="signupFormDiv" style="display:none;">
-      <form id="signupForm" onsubmit="return handleSignup(event)">
-        <div class="input-group">
-          <span class="input-icon">&#128100;</span>
-          <input type="text" placeholder="Full Name" id="signupName" required>
+        <div class="tab-buttons">
+          <button id="loginTab" class="active" onclick="showTab('login')">Login</button>
+          <button id="signupTab" onclick="showTab('signup')">Register</button>
         </div>
-        <div class="input-group">
-          <span class="input-icon">@</span>
-          <input type="email" placeholder="Email Address" id="signupEmail" required autocomplete="email">
-        </div>
-        <div class="input-group">
-          <span class="input-icon">&#128274;</span>
-          <input type="password" placeholder="Password" id="signupPassword" required autocomplete="new-password">
-        </div>
-        <div id="signupError" class="form-error"></div>
-        <button type="submit" class="main-btn">Sign Up</button>
-      </form>
-      <div class="divider"><span>or</span></div>
-      <div class="g_id_signin" data-type="standard"></div>
+        <!-- Login Form -->
+        <form id="loginFormDiv" onsubmit="return handleLogin(event)">
+          <div class="input-group">
+            <span class="input-icon">&#9993;</span>
+            <input id="loginEmail" type="email" placeholder="Your email address" required />
+          </div>
+          <div class="input-group">
+            <span class="input-icon">&#128274;</span>
+            <input id="loginPassword" type="password" placeholder="Your password" required />
+            <button type="button" class="show-hide" onclick="togglePassword('loginPassword', this)">&#128065;</button>
+          </div>
+          <div class="form-row">
+            <label>
+              <input type="checkbox" id="rememberMe" />
+              Remember me
+            </label>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+          <div class="form-error" id="loginError"></div>
+          <button class="main-btn" type="submit">&#xf090; Login</button>
+        </form>
+        <!-- Register Form -->
+        <form id="signupFormDiv" style="display:none;" onsubmit="return handleSignup(event)">
+          <div class="input-group">
+            <span class="input-icon">&#128100;</span>
+            <input id="signupName" type="text" placeholder="Your full name" required />
+          </div>
+          <div class="input-group">
+            <span class="input-icon">&#9993;</span>
+            <input id="signupEmail" type="email" placeholder="Your email address" required />
+          </div>
+          <div class="input-group">
+            <span class="input-icon">&#128274;</span>
+            <input id="signupPassword" type="password" placeholder="Create a password" required />
+            <button type="button" class="show-hide" onclick="togglePassword('signupPassword', this)">&#128065;</button>
+          </div>
+          <!-- Password strength bar (initially hidden) -->
+          <div id="passwordStrengthContainer" class="password-strength-bar" style="display:none;">
+            <div id="passwordStrengthBar" class="strength-bar-inner"></div>
+          </div>
+          
+          
+          <div class="input-group">
+            <span class="input-icon">&#128274;</span>
+            <input id="signupConfirmPassword" type="password" placeholder="Confirm your password" required />
+            <button type="button" class="show-hide" onclick="togglePassword('signupConfirmPassword', this)">&#128065;</button>
+          </div>
+          <div class="form-error" id="signupError"></div>
+          <label class="terms-label">
+            <input type="checkbox" required />
+            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+          </label>
+          <button class="main-btn" type="submit">&#128100; Register</button>
+        </form>
+        <div class="divider"><span>Or</span></div>
+        <div class="g_id_signin"></div>
+
+      </div>
     </div>
   </div>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="login.js"></script>
-  </body>
+</body>
 </html>
