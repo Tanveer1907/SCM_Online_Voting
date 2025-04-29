@@ -11,3 +11,11 @@ function closeSmallModal() {
     const modal = document.getElementById('smallModal');
     modal.style.display = 'none'; // Hide the modal
 }
+
+// Close the modal when clicking outside the modal content
+window.addEventListener('click', function (event) {
+    const modal = document.getElementById('smallModal');
+    if (event.target === modal) {
+        closeSmallModal();
+    }
+});
