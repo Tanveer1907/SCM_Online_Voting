@@ -209,3 +209,48 @@ function getStrengthBar(password) {
     return {percent: "100%", color: "#388e3c"};
   }
 }
+function validatePassword(password) {
+  // Returns true if password meets all criteria
+  const pattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])(?=\S+$).{8,}$/;
+  return pattern.test(password);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordInput = document.getElementById('signupPassword');
+  const errorDiv = document.getElementById('signupError'); // Or create a new div for password errors
+
+  passwordInput.addEventListener('input', function() {
+    const pw = passwordInput.value;
+    if (pw.length === 0) {
+      errorDiv.textContent = '';
+    // } else if (!validatePassword(pw)) {
+    //   errorDiv.textContent =
+    //     "Password must be at least 8 characters, have uppercase and lowercase letters, a number, a special character, and no spaces.";
+    // } else {
+      errorDiv.textContent = '';
+    }
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordInput = document.getElementById('signupPassword');
+  const spaceError = document.getElementById('passwordSpaceError');
+
+  // Prevent space on keypress
+  passwordInput.addEventListener('keydown', function(e) {
+    if (e.key === ' ') {
+      e.preventDefault();
+      spaceError.textContent = "Spaces are not allowed in the password.";
+    } else {
+      spaceError.textContent = "";
+    }
+  });
+
+  // Prevent spaces on paste
+  passwordInput.addEventListener('input', function(e) {
+    if (/\s/.test(passwordInput.value)) {
+      passwordInput.value = passwordInput.value.replace(/\s/g, '');
+      spaceError.textContent = "Spaces are not allowed in the password.";
+    } else {
+      spaceError.textContent = "";
+    }
+  });
+});
