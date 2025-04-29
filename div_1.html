@@ -22,19 +22,31 @@
         <h2>Announcements</h2>
         <div class="lorem-item">
             <h3>Postponing ST3s</h3>
-            <p>ST3s have been postponed by a week and the last working day is now 9th May, whereas ST3s will be from 12th May.</p>
+            <p>
+                ST3s have been postponed by a week... 
+                <a href="#" onclick="showFullAnnouncement('Postponing ST3s', 'ST3s have been postponed by a week and the last working day is now 9th May, whereas ST3s will be from 12th May.')">View More</a>
+            </p>
         </div>
         <div class="lorem-item">
             <h3>End Term Examination</h3>
-            <p>Attention students! End semester examinations will commence from 15th May 2025. Detailed date sheets will be released on the student portal. Start preparing and all the best!</p>
+            <p>
+                Attention students! End semester examinations will commence... 
+                <a href="#" onclick="showFullAnnouncement('End Term Examination', 'Attention students! End semester examinations will commence from 15th May 2025. Detailed date sheets will be released on the student portal. Start preparing and all the best!')">View More</a>
+            </p>
         </div>
         <div class="lorem-item">
             <h3>Placement Opportunity</h3>
-            <p>Good news for final-year students! Infosys and TCS are visiting our campus for placements on 20th May. Please update your resumes and register before 10th May.</p>
+            <p>
+                Good news for final-year students! Infosys and TCS are visiting... 
+                <a href="#" onclick="showFullAnnouncement('Placement Opportunity', 'Good news for final-year students! Infosys and TCS are visiting our campus for placements on 20th May. Please update your resumes and register before 10th May.')">View More</a>
+            </p>
         </div>
         <div class="lorem-item">
             <h3>Fee Payment Reminder</h3>
-            <p>Reminder to all students: Last date for semester fee submission is 30th April. Late fees will be applicable after the deadline.</p>
+            <p>
+                Reminder to all students: Last date for semester fee submission... 
+                <a href="#" onclick="showFullAnnouncement('Fee Payment Reminder', 'Reminder to all students: Last date for semester fee submission is 30th April. Late fees will be applicable after the deadline.')">View More</a>
+            </p>
         </div>
     </div>
 
@@ -100,6 +112,15 @@
         </section>
     </main>
 
-    <script src="index.js"></script>
+    <!-- Small Modal -->
+    <div id="smallModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSmallModal()">&times;</span>
+            <h2 id="smallModalTitle"></h2>
+            <p id="smallModalDescription"></p>
+        </div>
+    </div>
+
+    <script src="div_1.js"></script>
 </body>
 </html>
