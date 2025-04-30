@@ -1,9 +1,9 @@
 // Initial vote data
 let votes = {
-    A: 5,
-    B: 5,
-    C: 5,
-    D: 6
+    A: 19,
+    B: 20,
+    C: 21,
+    D: 23
 };
 
 // Prevent multiple votes
