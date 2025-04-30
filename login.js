@@ -161,3 +161,96 @@ function getStrengthBar(password) {
     return {percent: "100%", color: "#388e3c"};
   }
 }
+document.addEventListener('DOMContentLoaded', function() {
+  const signupPassword = document.getElementById('signupPassword');
+  const bar = document.getElementById('passwordStrengthBar');
+  const barContainer = document.getElementById('passwordStrengthContainer');
+  
+  if (signupPassword && bar && barContainer) {
+    signupPassword.addEventListener('input', function() {
+      const val = signupPassword.value;
+      if (val.length > 0) {
+        barContainer.style.display = 'block';
+        const {percent, color} = getStrengthBar(val);
+        bar.style.width = percent;
+        bar.style.background = color;
+      } else {
+        barContainer.style.display = 'none';
+        bar.style.width = '0%';
+      }
+    });
+    signupPassword.addEventListener('blur', function() {
+      if (signupPassword.value.length === 0) {
+        barContainer.style.display = 'none';
+        bar.style.width = '0%';
+      }
+    });
+    signupPassword.addEventListener('focus', function() {
+      if (signupPassword.value.length > 0) {
+        barContainer.style.display = 'block';
+      }
+    });
+  }
+});
+
+function getStrengthBar(password) {
+  let score = 0;
+  if (password.length >= 8) score++;
+  if (/[A-Z]/.test(password)) score++;
+  if (/[a-z]/.test(password)) score++;
+  if (/\d/.test(password)) score++;
+  if (/[^A-Za-z0-9]/.test(password)) score++;
+
+  if (score <= 2) {
+    return {percent: "25%", color: "#d32f2f"};
+  } else if (score === 3 || score === 4) {
+    return {percent: "60%", color: "#fbc02d"};
+  } else {
+    return {percent: "100%", color: "#388e3c"};
+  }
+}
+function validatePassword(password) {
+  // Returns true if password meets all criteria
+  const pattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])(?=\S+$).{8,}$/;
+  return pattern.test(password);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordInput = document.getElementById('signupPassword');
+  const errorDiv = document.getElementById('signupError'); // Or create a new div for password errors
+
+  passwordInput.addEventListener('input', function() {
+    const pw = passwordInput.value;
+    if (pw.length === 0) {
+      errorDiv.textContent = '';
+    // } else if (!validatePassword(pw)) {
+    //   errorDiv.textContent =
+    //     "Password must be at least 8 characters, have uppercase and lowercase letters, a number, a special character, and no spaces.";
+    // } else {
+      errorDiv.textContent = '';
+    }
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordInput = document.getElementById('signupPassword');
+  const spaceError = document.getElementById('passwordSpaceError');
+
+  // Prevent space on keypress
+  passwordInput.addEventListener('keydown', function(e) {
+    if (e.key === ' ') {
+      e.preventDefault();
+      spaceError.textContent = "Spaces are not allowed in the password.";
+    } else {
+      spaceError.textContent = "";
+    }
+  });
+
+  // Prevent spaces on paste
+  passwordInput.addEventListener('input', function(e) {
+    if (/\s/.test(passwordInput.value)) {
+      passwordInput.value = passwordInput.value.replace(/\s/g, '');
+      spaceError.textContent = "Spaces are not allowed in the password.";
+    } else {
+      spaceError.textContent = "";
+    }
+  });
+});
