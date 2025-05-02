@@ -18,18 +18,20 @@ body {
     left: 0;
     width: 100%; /* Make the navbar span the full width of the page */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #0d47a1; /* Using the blue from the original styles.css */
     color: white;
     padding: 0.8rem 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 100; /* Ensure it stays above other content */
 }
 
 .navbar-brand {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    margin-right: 490px;
     gap: 1rem;
 }
 
