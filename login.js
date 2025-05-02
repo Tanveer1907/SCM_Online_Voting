@@ -254,3 +254,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// window.location.href = "div_1.html";
+// // After successful login
+// localStorage.setItem('isLoggedIn', 'true');
+// window.location.href = "div_1.html";
+// localStorage.removeItem('isLoggedIn');
+// window.location.href = "login.html";
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('signupFormDiv');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // --- Add your validation here if needed ---
+    // For example:
+    // const name = document.getElementById('signupName').value.trim();
+    // const identifier = document.getElementById('signupIdentifier').value.trim();
+    // const password = document.getElementById('signupPassword').value;
+    // const confirmPassword = document.getElementById('signupConfirmPassword').value;
+    // if (!name || !identifier || !password || !confirmPassword) {
+    //   // show error
+    //   return;
+    // }
+    // if (password !== confirmPassword) {
+    //   // show error
+    //   return;
+    // }
+    // --- End of validation ---
+
+    // If validation passes, redirect:
+    window.location.href = "div_1.html";
+  });
+});
+
+
