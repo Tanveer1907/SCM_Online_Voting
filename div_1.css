@@ -8,7 +8,7 @@ body {
     flex-direction: row;
     height: 100vh; /* Ensure the body takes the full height of the viewport */
     background: linear-gradient(120deg, #eaf4ff 0%, #f7fafd 100%);
-    padding-top: 80px; /* Adjust based on the navbar height */
+    padding-top: 70px; /* Reduced from 80px to better fit the new navbar height */
 }
 
 /* Navigation Bar */
@@ -20,9 +20,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #007BFF;
+    background-color: #0d47a1; /* Using the blue from the original styles.css */
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Ensure it stays above other content */
 }
@@ -34,14 +34,20 @@ body {
 }
 
 .brand-logo {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .navbar h1 {
     margin: 0;
     font-size: 1.5rem;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links {
@@ -53,7 +59,7 @@ body {
 }
 
 .nav-links li {
-    display: inline;
+    display: inline-block;
 }
 
 .nav-links a {
@@ -61,10 +67,34 @@ body {
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s;
+    padding: 0.5rem;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
     color: #FFD700;
+}
+
+/* Media query for responsive navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 0.8rem 1rem;
+    }
+    
+    .navbar-brand {
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .nav-links li {
+        margin: 0 0.3rem;
+    }
 }
 
 /* Sidebar */
@@ -111,7 +141,7 @@ body {
     border-right: 1px solid #ccc;
     height: calc(100vh - 5rem); /* Full height minus space for the navbar */
     position: fixed; /* Keeps it fixed on the left */
-    top: 5rem; /* Below the fixed navbar */
+    top: 70px; /* Align with new navbar height */
     left: 0;
     overflow-y: auto; /* Enable vertical scrolling */
     scrollbar-width: thin; /* For modern browsers, make the scrollbar thinner */
