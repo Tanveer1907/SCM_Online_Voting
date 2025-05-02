@@ -7,49 +7,96 @@ body {
     display: flex;
     flex-direction: row;
     height: 100vh; /* Ensure the body takes the full height of the viewport */
+    background: linear-gradient(120deg, #eaf4ff 0%, #f7fafd 100%);
+    padding-top: 70px; /* Reduced from 80px to better fit the new navbar height */
 }
 
 /* Navigation Bar */
-nav {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: fixed;
+.navbar {
+    position: fixed; /* Fix the navbar at the top */
     top: 0;
     left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    width: 100%; /* Make the navbar span the full width of the page */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0d47a1; /* Using the blue from the original styles.css */
+    color: white;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Ensure it stays above other content */
 }
 
-nav h1 {
+.navbar-brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 490px;
+    gap: 1rem;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar h1 {
     margin: 0;
     font-size: 1.5rem;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
 }
 
 .nav-links li {
-    display: inline;
+    display: inline-block;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
+    transition: color 0.3s;
+    padding: 0.5rem;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
+    color: #FFD700;
+}
+
+/* Media query for responsive navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 0.8rem 1rem;
+    }
+    
+    .navbar-brand {
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .nav-links li {
+        margin: 0 0.3rem;
+    }
 }
 
 /* Sidebar */
@@ -96,7 +143,7 @@ nav h1 {
     border-right: 1px solid #ccc;
     height: calc(100vh - 5rem); /* Full height minus space for the navbar */
     position: fixed; /* Keeps it fixed on the left */
-    top: 5rem; /* Below the fixed navbar */
+    top: 70px; /* Align with new navbar height */
     left: 0;
     overflow-y: auto; /* Enable vertical scrolling */
     scrollbar-width: thin; /* For modern browsers, make the scrollbar thinner */
