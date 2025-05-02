@@ -9,16 +9,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 2rem; /* Add space from top and bottom */
 }
 
 /* Poll Container */
 .poll-container {
     display: flex;
-    gap: 2rem;
-    align-items: flex-start;
+    gap: 2rem; /* Space between the quiz and analysis sections */
+    align-items: flex-start; /* Align sections at the top */
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Ensure responsiveness on smaller screens */
 }
 
 /* Quiz Section */

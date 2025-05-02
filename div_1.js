@@ -19,3 +19,10 @@ window.addEventListener('click', function (event) {
         closeSmallModal();
     }
 });
+document.getElementById('startPollBtn').addEventListener('click', function() {
+    window.location.href = 'poll5.html';
+  });
+document.getElementById('startPollBtn1').addEventListener('click', function() {
+    window.location.href = 'poll6.html';
+  });
+  

@@ -1,86 +1,106 @@
-// Initial vote data
 let votes = {
-    A: 19,
-    B: 20,
-    C: 21,
-    D: 23
+  "Jashan Devgan": 0,
+  "Kartikya Sokhal": 0,
+  "Tanishq Chhabra": 0,
+  "Tanveer Singh": 0
 };
 
-// Prevent multiple votes
 let hasVoted = false;
+let chart = null;
 
-// Update the graph dynamically
+// Create or update the Chart.js bar chart
 function updateGraph() {
-    const data = {
-        labels: Object.keys(votes),
-        datasets: [{
-            label: 'Number of Votes',
-            data: Object.values(votes),
-            backgroundColor: ['#007BFF', '#28A745', '#FFC107', '#DC3545'],
-            borderColor: ['#0056b3', '#1e7e34', '#d39e00', '#bd2130'],
-            borderWidth: 1
-        }]
-    };
-
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+  const ctx = document.getElementById('votesGraph').getContext('2d');
+  const data = {
+    labels: Object.keys(votes),
+    datasets: [{
+      label: 'Votes',
+      data: Object.values(votes),
+      backgroundColor: ['#007BFF', '#28A745', '#FFC107', '#DC3545'],
+      borderColor: ['#0056b3', '#1e7e34', '#d39e00', '#bd2130'],
+      borderWidth: 1,
+      categoryPercentage: 0.7, // less width for bars
+      barPercentage: 0.7
+    }]
+  };
+  const options = {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: {
+        offset: true,
+        ticks: {
+          maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+          font: { size: 13 }
         }
-    };
-
-    const ctx = document.getElementById('votesGraph').getContext('2d');
-    new Chart(ctx, config);
-}
-
-// Update textual analysis
-function updateTextualAnalysis() {
-    const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
-
-    document.getElementById('AVotes').textContent = `${votes.A} votes`;
-    document.getElementById('BVotes').textContent = `${votes.B} votes`;
-    document.getElementById('CVotes').textContent = `${votes.C} votes`;
-    document.getElementById('DVotes').textContent = `${votes.D} votes`;
-
-    document.querySelectorAll('.options button').forEach(button => {
-        const option = button.getAttribute('data-option');
-        const percentage = ((votes[option] / totalVotes) * 100).toFixed(2);
-        button.textContent = `${option} - ${percentage}%`;
-        button.style.cursor = 'default'; // Remove pointer cursor
+      },
+      y: {
+        beginAtZero: true,
+        ticks: { precision: 0 }
+      }
+    }
+  };
+  if (chart) {
+    chart.data = data;
+    chart.options = options;
+    chart.update();
+  } else {
+    chart = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: options
     });
+  }
 }
 
-// Handle vote submission
+// Update textual analysis and button percentages
+function updateAnalysis() {
+  const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+
+  document.getElementById('DevganVotes').textContent = `Jashan Devgan - ${votes["Jashan Devgan"]} votes`;
+  document.getElementById('SokhalVotes').textContent = `Kartikya Sokhal - ${votes["Kartikya Sokhal"]} votes`;
+  document.getElementById('ChhabraVotes').textContent = `Tanishq Chhabra - ${votes["Tanishq Chhabra"]} votes`;
+  document.getElementById('TanveerVotes').textContent = `Tanveer Singh - ${votes["Tanveer Singh"]} votes`;
+
+  document.querySelectorAll('.options button').forEach(button => {
+    const option = button.dataset.option;
+    const percentage = totalVotes > 0
+      ? ((votes[option] / totalVotes) * 100).toFixed(1)
+      : "0.0";
+    button.textContent = `${option} (${percentage}%)`;
+  });
+}
+
+// Handle voting
 document.querySelectorAll('.options button').forEach(button => {
-    button.addEventListener('click', () => {
-        if (hasVoted) {
-            alert('You have already voted!');
-            return;
-        }
+  button.addEventListener('click', function() {
+    if (hasVoted) {
+      alert('You can only vote once!');
+      return;
+    }
+    const option = this.dataset.option;
+    votes[option]++;
+    hasVoted = true;
 
-        const selectedOption = button.getAttribute('data-option');
-        votes[selectedOption]++;
-        hasVoted = true;
+    // Show analysis section
+    document.getElementById('analysisSection').style.display = 'block';
 
-        // Disable all buttons
-        document.querySelectorAll('.options button').forEach(btn => btn.disabled = true);
+    // Initialize chart if needed
+    if (!chart) updateGraph();
 
-        // Show the analysis section
-        document.getElementById('analysisSection').style.display = 'block';
+    // Update UI
+    updateAnalysis();
+    updateGraph();
 
-        // Update the graph and textual analysis
-        updateGraph();
-        updateTextualAnalysis();
+    // Disable buttons and add visual feedback
+    document.querySelectorAll('.options button').forEach(b => {
+      b.disabled = true;
+      b.style.background = '#e9ecef';
+      b.style.color = '#6c757d';
+      b.style.cursor = 'not-allowed';
+      b.style.transform = 'none';
     });
+  });
 });
