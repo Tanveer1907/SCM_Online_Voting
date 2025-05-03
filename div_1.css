@@ -8,7 +8,7 @@ body {
     flex-direction: row;
     height: 100vh; /* Ensure the body takes the full height of the viewport */
     background: linear-gradient(120deg, #eaf4ff 0%, #f7fafd 100%);
-    padding-top: 70px; /* Reduced from 80px to better fit the new navbar height */
+    padding-top: 70px; /* Add space for the navbar */
 }
 
 /* Navigation Bar */
@@ -86,6 +86,7 @@ body {
     
     .navbar-brand {
         margin-bottom: 0.5rem;
+        margin-right: 0;
     }
     
     .nav-links {
@@ -99,39 +100,6 @@ body {
     }
 }
 
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar ul li {
-    margin: 1rem 0;
-}
-
-.sidebar ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.sidebar ul li a:hover {
-    text-decoration: underline;
-}
-
 /* Left Rectangular Div */
 .left-rectangular-div {
     width: 300px;
@@ -141,9 +109,9 @@ body {
     flex-direction: column;
     gap: 1rem;
     border-right: 1px solid #ccc;
-    height: calc(100vh - 5rem); /* Full height minus space for the navbar */
+    height: calc(100vh - 70px); /* Full height minus navbar */
     position: fixed; /* Keeps it fixed on the left */
-    top: 70px; /* Align with new navbar height */
+    top: 70px; /* Position below navbar */
     left: 0;
     overflow-y: auto; /* Enable vertical scrolling */
     scrollbar-width: thin; /* For modern browsers, make the scrollbar thinner */
