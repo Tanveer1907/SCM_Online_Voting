@@ -102,7 +102,7 @@ body {
 
 /* Left Rectangular Div */
 .left-rectangular-div {
-    width: 300px;
+    width: 350px; /* Increased from 300px to make it wider */
     background-color: #f4f4f4;
     padding: 1rem;
     display: flex;
@@ -113,7 +113,7 @@ body {
     position: fixed; /* Keeps it fixed on the left */
     top: 70px; /* Position below navbar */
     left: 0;
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: scroll; /* Changed from auto to scroll to always show scrollbar */
     scrollbar-width: thin; /* For modern browsers, make the scrollbar thinner */
     scrollbar-color: #ccc #f4f4f4; /* Customize scrollbar colors */
 }
@@ -166,7 +166,7 @@ body {
 
 /* Main Content */
 main {
-    margin-left: 320px; /* Leave space for the left rectangular div */
+    margin-left: 370px; /* Leave space for the left rectangular div */
     padding: 2rem;
     flex-grow: 1;
     margin-top: 5rem; /* Add space for the fixed navbar */
