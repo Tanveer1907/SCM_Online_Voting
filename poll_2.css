@@ -4,6 +4,12 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: linear-gradient(120deg, #eaf4ff 0%, #f7fafd 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem; /* Add space from top and bottom */
 }
 
 /* Navigation Bar */
@@ -76,36 +82,37 @@ body {
 .quiz-section {
     padding: 2rem;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
+    max-width: 400px;
 }
 
 .quiz-section h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: #0d47a1;
+    margin-bottom: 1rem;
 }
 
 .quiz-section p {
     font-size: 1rem;
-    margin-bottom: 1rem;
     color: #555;
+    margin-bottom: 1.5rem;
 }
 
 .quiz {
-    background-color: #fff;
+    background-color: #f9f9f9;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    display: inline-block;
     text-align: left;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .quiz p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    color: #333;
 }
 
 .options {
@@ -115,18 +122,19 @@ body {
 }
 
 .options button {
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     font-size: 1rem;
     border: 1px solid #007BFF;
     background-color: #007BFF;
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .options button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .options button:disabled {
@@ -139,29 +147,35 @@ body {
 /* Analysis Section */
 .analysis-section {
     padding: 2rem;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
 .analysis-section h2 {
-    text-align: center;
+    font-size: 1.5rem;
+    color: #0d47a1;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .analysis-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .graph {
-    flex: 1;
+    text-align: center;
 }
 
 .text-analysis {
-    flex: 1;
-    background-color: #fff;
+    background-color: #f9f9f9;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
 }
