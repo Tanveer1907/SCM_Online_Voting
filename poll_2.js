@@ -1,9 +1,9 @@
 // Initial vote data
 let votes = {
-    C: 120,
-    "C++": 150,
-    Python: 200,
-    Java: 180
+    C: 0,
+    "C++": 0,
+    Python: 0,
+    Java: 0
 };
 
 // Prevent multiple votes
