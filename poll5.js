@@ -18,9 +18,7 @@ function updateGraph() {
       data: Object.values(votes),
       backgroundColor: ['#007BFF', '#28A745', '#FFC107', '#DC3545'],
       borderColor: ['#0056b3', '#1e7e34', '#d39e00', '#bd2130'],
-      borderWidth: 1,
-      categoryPercentage: 0.7, // less width for bars
-      barPercentage: 0.7
+      borderWidth: 1
     }]
   };
   const options = {
@@ -28,12 +26,11 @@ function updateGraph() {
     plugins: { legend: { display: false } },
     scales: {
       x: {
-        offset: true,
         ticks: {
           maxRotation: 0,
           minRotation: 0,
           autoSkip: false,
-          font: { size: 13 }
+          font: { size: 14 }
         }
       },
       y: {
@@ -42,11 +39,14 @@ function updateGraph() {
       }
     }
   };
+
   if (chart) {
+    // Update data and options, then redraw
     chart.data = data;
     chart.options = options;
     chart.update();
   } else {
+    // Create the chart only once
     chart = new Chart(ctx, {
       type: 'bar',
       data: data,
@@ -88,11 +88,10 @@ document.querySelectorAll('.options button').forEach(button => {
     document.getElementById('analysisSection').style.display = 'block';
 
     // Initialize chart if needed
-    if (!chart) updateGraph();
+    updateGraph();
 
     // Update UI
     updateAnalysis();
-    updateGraph();
 
     // Disable buttons and add visual feedback
     document.querySelectorAll('.options button').forEach(b => {
