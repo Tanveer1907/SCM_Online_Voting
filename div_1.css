@@ -7,98 +7,113 @@ body {
     display: flex;
     flex-direction: row;
     height: 100vh; /* Ensure the body takes the full height of the viewport */
+    background: linear-gradient(120deg, #eaf4ff 0%, #f7fafd 100%);
+    padding-top: 70px; /* Add space for the navbar */
 }
 
 /* Navigation Bar */
-nav {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: fixed;
+.navbar {
+    position: fixed; /* Fix the navbar at the top */
     top: 0;
     left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    width: 100%; /* Make the navbar span the full width of the page */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0d47a1; /* Using the blue from the original styles.css */
+    color: white;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Ensure it stays above other content */
 }
 
-nav h1 {
+.navbar-brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 490px;
+    gap: 1rem;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar h1 {
     margin: 0;
     font-size: 1.5rem;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
 }
 
 .nav-links li {
-    display: inline;
+    display: inline-block;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
+    transition: color 0.3s;
+    padding: 0.5rem;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
+    color: #FFD700;
 }
 
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar ul li {
-    margin: 1rem 0;
-}
-
-.sidebar ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.sidebar ul li a:hover {
-    text-decoration: underline;
+/* Media query for responsive navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 0.8rem 1rem;
+    }
+    
+    .navbar-brand {
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .nav-links li {
+        margin: 0 0.3rem;
+    }
 }
 
 /* Left Rectangular Div */
 .left-rectangular-div {
-    width: 300px;
+    width: 350px; /* Increased from 300px to make it wider */
     background-color: #f4f4f4;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     border-right: 1px solid #ccc;
-    height: calc(100vh - 5rem); /* Full height minus space for the navbar */
+    height: calc(100vh - 70px); /* Full height minus navbar */
     position: fixed; /* Keeps it fixed on the left */
-    top: 5rem; /* Below the fixed navbar */
+    top: 70px; /* Position below navbar */
     left: 0;
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: scroll; /* Changed from auto to scroll to always show scrollbar */
     scrollbar-width: thin; /* For modern browsers, make the scrollbar thinner */
     scrollbar-color: #ccc #f4f4f4; /* Customize scrollbar colors */
 }
@@ -151,7 +166,7 @@ nav h1 {
 
 /* Main Content */
 main {
-    margin-left: 320px; /* Leave space for the left rectangular div */
+    margin-left: 370px; /* Leave space for the left rectangular div */
     padding: 2rem;
     flex-grow: 1;
     margin-top: 5rem; /* Add space for the fixed navbar */

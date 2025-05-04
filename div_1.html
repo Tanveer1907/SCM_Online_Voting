@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voting Site</title>
-    <link rel="stylesheet" href="div_1.css">
+    <link rel="stylesheet" href="div_1.css">     
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav>
-        <h1>Voting Site</h1>
-        <ul class="nav-links">
-            <li><a href="#polls">Polls</a></li>
-            <li><a href="#why-vote">Why Vote</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="brand_logo.jpg" alt="Brand Logo" class="brand-logo">
+            <h1>Voting Site</h1>
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="heropage.html">Home</a></li>
+                <li><a href="#polls">Polls</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#announcements">Announcements</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Left Rectangular Div -->
@@ -46,6 +53,27 @@
             <p>
                 Reminder to all students: Last date for semester fee submission... 
                 <a href="#" onclick="showFullAnnouncement('Fee Payment Reminder', 'Reminder to all students: Last date for semester fee submission is 30th April. Late fees will be applicable after the deadline.')">View More</a>
+            </p>
+        </div>
+        <div class="lorem-item">
+            <h3>Library Book Return</h3>
+            <p>
+                All students are requested to return library books... 
+                <a href="#" onclick="showFullAnnouncement('Library Book Return', 'All students are requested to return library books by April 28th. Any overdue books will incur a late fee of Rs. 10 per day per book. Clear all library dues before the end semester examinations.')">View More</a>
+            </p>
+        </div>
+        <div class="lorem-item">
+            <h3>Summer Internship Fair</h3>
+            <p>
+                The annual Summer Internship Fair will be held... 
+                <a href="#" onclick="showFullAnnouncement('Summer Internship Fair', 'The annual Summer Internship Fair will be held on April 25th in the college auditorium from 10 AM to 4 PM. Over 30 companies will be participating. Prepare your resumes and dress formally.')">View More</a>
+            </p>
+        </div>
+        <div class="lorem-item">
+            <h3>Sports Day Registration</h3>
+            <p>
+                Registration for Annual Sports Day has begun... 
+                <a href="#" onclick="showFullAnnouncement('Sports Day Registration', 'Registration for Annual Sports Day has begun! The event will be held on May 5th. Students can register for multiple events including cricket, football, basketball, athletics, and more. Register before April 27th.')">View More</a>
             </p>
         </div>
     </div>
@@ -87,14 +115,15 @@
                 <h2>CR Election</h2>
                 <p>Duration: 7 days</p>
                 <p>Votes: 300</p>
-                <button>Start Poll</button>
+                <button id="startPollBtn">Start Poll</button>
+
             </div>
             <div class="poll">
                 <img src="teacher_feedback.webp" alt="Poll 6 Image">
                 <h2>Teacher Feedback</h2>
                 <p>Duration: 5 days</p>
                 <p>Votes: 150</p>
-                <button>Start Poll</button>
+                <button id="startPollBtn1">Start Poll</button>
             </div>
         </section>
 

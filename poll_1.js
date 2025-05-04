@@ -1,9 +1,9 @@
 // Initial vote data
 let votes = {
-    "Rs. 100": 50,
-    "Rs. 250": 25,
-    "Rs. 300": 32,
-    "Rs. 500": 17
+    "Rs. 100": 0,
+    "Rs. 250": 0,
+    "Rs. 300": 0,
+    "Rs. 500": 0
 };
 
 // Prevent multiple votes

@@ -7,41 +7,53 @@
     <link rel="stylesheet" href="poll5.css">
 </head>
 <body>
-    <div class="poll-container">
-        <!-- Quiz Section -->
-        <section class="quiz-section">
-            <h1>CR Elections</h1>
-            <p>Top 2 candidates will be chosen as the CRsV</p>
-            <div class="quiz">
-                <p>Vote for the best male candidate!</p>
-                <div class="options">
-                    <button data-option="A">Jashan Devgan</button>
-                    <button data-option="B">Kartikya Sokhal</button>
-                    <button data-option="C">Tanishq Chhabra</button>
-                    <button data-option="D">Tanveer Singh</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Analysis Section -->
-        <section class="analysis-section" id="analysisSection" style="display: none;">
-            <h2>Analysis</h2>
-            <div class="analysis-content">
-                <!-- Graph Section -->
-                <div class="graph">
-                    <canvas id="votesGraph"></canvas>
-                </div>
-                <!-- Textual Analysis Section -->
-                <div class="text-analysis">
-                    <p id="aVotes">A - 5 votes</p>
-                    <p id="bVotes">B - 5 votes</p>
-                    <p id="cVotes">C - 5 votes</p>
-                    <p id="dVotes">D - 6 votes</p>
-                </div>
-            </div>
-        </section>
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <img src="brand_logo.jpg" alt="Brand Logo" class="brand-logo">
+        <h1>Voting Site</h1>
     </div>
-
+    <div class="nav-container">
+        <ul class="nav-links">
+            <li><a href="heropage.html">Home</a></li>
+            <li><a href="#polls">Polls</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#announcements">Announcements</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+</nav>
+    <div class="poll-container">
+        <!-- Poll Section (Left) -->
+        <div class="quiz-section">
+          <h1>CR Elections</h1>
+          <p>Top 2 candidates will be chosen as the CRs<br>Vote for the best male candidate!</p>
+          <div class="quiz">
+            <p>Select your choice:</p>
+            <div class="options">
+              <button data-option="Jashan Devgan">Jashan Devgan</button>
+              <button data-option="Kartikya Sokhal">Kartikya Sokhal</button>
+              <button data-option="Tanishq Chhabra">Tanishq Chhabra</button>
+              <button data-option="Tanveer Singh">Tanveer Singh</button>
+            </div>
+          </div>
+        </div>
+        <!-- Analysis Section (Right) -->
+        <div id="analysisSection" class="analysis-section" style="display:none;">
+          <h2>Analysis</h2>
+          <div class="analysis-content">
+            <div class="graph">
+              <canvas id="votesGraph"></canvas>
+            </div>
+            <div class="text-analysis">
+              <div id="DevganVotes"></div>
+              <div id="SokhalVotes"></div>
+              <div id="ChhabraVotes"></div>
+              <div id="TanveerVotes"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="poll5.js"></script>
 </body>
