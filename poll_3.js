@@ -1,3 +1,6 @@
+// poll_3.js
+
+// Initialize votes for all 5 options
 let votes = {
     "Mr. A": 0,
     "Ms. B": 0,
@@ -8,6 +11,16 @@ let votes = {
 
 let chart = null;
 let hasVoted = false;
+let chart = null; // Store chart instance
+
+// Map between teacher names and display IDs
+const optionMap = {
+    "Mr. A": "votesA",
+    "Ms. B": "votesB",
+    "Dr. C": "votesC",
+    "Mrs. D": "votesD",
+    "Mrs. E": "votesE"
+};
 
 // Initialize chart
 function createChart() {

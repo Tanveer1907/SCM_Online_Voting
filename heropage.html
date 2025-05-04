@@ -19,6 +19,8 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="login.html" class="sign-in-btn">Sign In</a></li>
     </ul>
+    <button id="mode-toggle" class="mode-toggle-btn" aria-label="Toggle dark mode">🌙</button>
+
   </nav>
   
 
@@ -92,7 +94,7 @@
   <section class="testimonials flex-section">
     <div class="section-img">
       <img src="whatouruserssay_img.png"
-           alt="Voting Results Illustration">
+             alt="Voting Results Illustration">
     </div>
     <div class="section-content">
       <h2 class="center-heading">What Our Users Say</h2>
@@ -119,5 +121,13 @@
   </footer>
 
   <script src="heropage.js"></script>
+  <script>
+    const toggleBtn = document.getElementById('mode-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+    </script>
+    
 </body>
 </html>
