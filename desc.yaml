@@ -1,5 +1,5 @@
 loginPage:
-  title: "Online Voting Platform"
+  title: "Online Voting Zone"
   layout: split
   leftPane:
     image: true
