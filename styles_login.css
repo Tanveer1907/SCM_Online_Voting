@@ -82,6 +82,10 @@ body {
 .login-brand img {
   width: 48px;
   margin-bottom: 0.3rem;
+  border-radius: 50%;    /* Makes it circular */
+  object-fit: cover;     /* Ensures the image covers the circle */
+  height: 48px;
+  ;
 }
 .login-brand h1 {
   font-size: 1.5rem;
