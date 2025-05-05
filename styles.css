@@ -274,6 +274,7 @@
     width: 150px;
     color: var(--text-secondary);
   }
+<<<<<<< HEAD
   
   /* ===========================
      DEMO SECTION (Centered)
@@ -452,3 +453,54 @@
     }
   }
   
+=======
+}
+
+
+/* Hover effect to rise the sections */
+.about, .testimonials, .stats-grid {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Add smooth transition to each testimonial card */
+.testimonial {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Lift and add shadow on hover */
+.testimonial:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+
+/* Smooth transition for each stat box */
+.stat-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Lift and shadow on hover */
+.stat-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.poll-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poll-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+>>>>>>> heropg
