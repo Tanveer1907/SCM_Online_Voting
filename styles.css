@@ -233,10 +233,11 @@
     color: var(--blue-primary);
     font-size: 1.6rem;
     font-weight: 600;
+    box-shadow: #333333;
   }
   
   .demo-video {
-    width: 100%;
+    width: 80%;
     max-width: 800px;
     border-radius: 10px;
     margin-top: 1rem;
