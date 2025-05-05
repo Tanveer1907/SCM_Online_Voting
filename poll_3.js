@@ -1,7 +1,7 @@
 // poll_3.js
 
 // Initialize votes for all 5 options
-let votes = {
+const votes = {
     "Mr. A": 0,
     "Ms. B": 0,
     "Dr. C": 0,
@@ -11,7 +11,6 @@ let votes = {
 
 let chart = null;
 let hasVoted = false;
-let chart = null; // Store chart instance
 
 // Map between teacher names and display IDs
 const optionMap = {
@@ -21,6 +20,9 @@ const optionMap = {
     "Mrs. D": "votesD",
     "Mrs. E": "votesE"
 };
+
+// Store original button texts to restore later if needed
+const originalButtonTexts = {};
 
 // Initialize chart
 function createChart() {
@@ -55,19 +57,20 @@ function updateAnalysis() {
     const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
     
     // Update text analysis
-    document.getElementById('votesA').textContent = `Mr. A - ${votes["Mr. A"]} votes`;
-    document.getElementById('votesB').textContent = `Ms. B - ${votes["Ms. B"]} votes`;
-    document.getElementById('votesC').textContent = `Dr. C - ${votes["Dr. C"]} votes`;
-    document.getElementById('votesD').textContent = `Mrs. D - ${votes["Mrs. D"]} votes`;
-    document.getElementById('votesE').textContent = `Mrs. E - ${votes["Mrs. E"]} votes`;
+    for (const [option, id] of Object.entries(optionMap)) {
+        document.getElementById(id).textContent = `${option} - ${votes[option]} vote${votes[option] !== 1 ? 's' : ''}`;
+    }
 
-    // Update button percentages
+    // Update button percentages, keep original label + percentage
     document.querySelectorAll('.options button').forEach(button => {
         const option = button.dataset.option;
         const percentage = totalVotes > 0 
-            ? `${((votes[option]/totalVotes)*100).toFixed(1)}%` 
-            : '0%';
-        button.textContent = `${option} (${percentage})`;
+            ? ((votes[option]/totalVotes)*100).toFixed(1) 
+            : 0;
+
+        // Use original button text + percentage
+        const originalText = originalButtonTexts[option] || option;
+        button.textContent = `${originalText} (${percentage}%)`;
     });
 
     // Update chart data
@@ -76,6 +79,12 @@ function updateAnalysis() {
         chart.update();
     }
 }
+
+// Save original button texts on page load
+document.querySelectorAll('.options button').forEach(button => {
+    const option = button.dataset.option;
+    originalButtonTexts[option] = button.textContent;
+});
 
 // Handle voting
 document.querySelectorAll('.options button').forEach(btn => {
@@ -101,7 +110,8 @@ document.querySelectorAll('.options button').forEach(btn => {
         // Disable buttons and add visual feedback
         document.querySelectorAll('.options button').forEach(b => {
             b.disabled = true;
-            b.style.background = '#e3e3e3';
+            b.style.cursor = 'not-allowed';
+            b.style.opacity = '0.6';
             b.style.transform = 'none';
         });
     });
