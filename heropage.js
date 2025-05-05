@@ -67,5 +67,5 @@ window.addEventListener('DOMContentLoaded', function() {
   // Animate numbers in the hero section
   animateNumber('votes', 123, 1200);   // Votes Cast
   animateNumber('polls', 453, 1200);   // Polls Created
-  animateNumber('users', 1234, 1200);  // Active Users
+  animateNumber('users', 798, 1200);  // Active Users
 });
