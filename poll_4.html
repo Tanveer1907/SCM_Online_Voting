@@ -1,46 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>College Life Experience Poll</title>
-    <link rel="stylesheet" href="poll_4.css">
+    <link rel="stylesheet" href="poll_4.css" />
 </head>
 <body>
-    <!-- Poll Section -->
-    <section class="quiz-section">
-        <h1>College Life Experience Poll</h1>
-        <p>How much would you rate your college life experience?</p>
-        <div class="quiz">
-            <p>Your rating:</p>
-            <div class="options">
-                <button data-option="1">1 Star</button>
-                <button data-option="2">2 Stars</button>
-                <button data-option="3">3 Stars</button>
-                <button data-option="4">4 Stars</button>
-                <button data-option="5">5 Stars</button>
-            </div>
-        </div>
-    </section>
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-button">← Back to Home</a>
 
-    <!-- Analysis Section -->
-    <section class="analysis-section" id="analysisSection" style="display: none;">
-        <h2>Poll Results</h2>
-        <div class="analysis-content">
-            <!-- Graph Section -->
-            <div class="graph">
-                <canvas id="votesGraph"></canvas>
-            </div>
-            <!-- Textual Analysis Section -->
-            <div class="text-analysis">
-                <p id="star1Votes">1 Star - 0 votes</p>
-                <p id="star2Votes">2 Stars - 0 votes</p>
-                <p id="star3Votes">3 Stars - 0 votes</p>
-                <p id="star4Votes">4 Stars - 0 votes</p>
-                <p id="star5Votes">5 Stars - 0 votes</p>
-            </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="brand_logo.png" alt="Brand Logo" class="brand-logo" />
+            <h1>Voting Site</h1>
         </div>
-    </section>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="college_life_poll.html">Polls</a></li>
+                <li><a href="#analysisSection">Analysis</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="poll-container">
+        <!-- Poll Section -->
+        <section class="quiz-section" id="quiz-section">
+            <h1>College Life Experience Poll</h1>
+            <p>How much would you rate your college life experience?</p>
+            <div class="quiz">
+                <p>Your rating:</p>
+                <div class="options">
+                    <button data-option="1">1 Star</button>
+                    <button data-option="2">2 Stars</button>
+                    <button data-option="3">3 Stars</button>
+                    <button data-option="4">4 Stars</button>
+                    <button data-option="5">5 Stars</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Section -->
+        <section class="analysis-section" id="analysisSection" style="display: none;">
+            <h2>Poll Results</h2>
+            <div class="analysis-content">
+                <!-- Graph Section -->
+                <div class="graph">
+                    <canvas id="votesGraph"></canvas>
+                </div>
+                <!-- Textual Analysis Section -->
+                <div class="text-analysis">
+                    <p id="star1Votes">1 Star - 0 votes</p>
+                    <p id="star2Votes">2 Stars - 0 votes</p>
+                    <p id="star3Votes">3 Stars - 0 votes</p>
+                    <p id="star4Votes">4 Stars - 0 votes</p>
+                    <p id="star5Votes">5 Stars - 0 votes</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="poll_4.js"></script>
