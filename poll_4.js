@@ -7,15 +7,18 @@ let votes = {
 };
 
 let hasVoted = false;
+let votesGraph = null; // Chart instance
 
-function updateGraph() {
+function createGraph() {
+    const ctx = document.getElementById('votesGraph').getContext('2d');
+
     const data = {
         labels: ["1 Star", "2 Stars", "3 Stars", "4 Stars", "5 Stars"],
         datasets: [{
             label: 'Number of Votes',
             data: [votes["1"], votes["2"], votes["3"], votes["4"], votes["5"]],
-            backgroundColor: ['#dc3545', '#fd7e14', '#ffc107', '#28a745', '#007bff'],
-            borderColor: ['#a71d2a', '#c05600', '#b38600', '#1e7e34', '#0056b3'],
+            backgroundColor: 'rgba(0, 123, 255, 0.7)',  // Blue fill
+            borderColor: 'rgba(0, 123, 255, 1)',        // Blue border
             borderWidth: 1
         }]
     };
@@ -29,13 +32,26 @@ function updateGraph() {
                 legend: { display: false }
             },
             scales: {
-                y: { beginAtZero: true }
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
             }
         }
     };
 
-    const ctx = document.getElementById('votesGraph').getContext('2d');
-    new Chart(ctx, config);
+    votesGraph = new Chart(ctx, config);
+}
+
+function updateGraph() {
+    if (!votesGraph) {
+        createGraph();
+    } else {
+        votesGraph.data.datasets[0].data = [votes["1"], votes["2"], votes["3"], votes["4"], votes["5"]];
+        votesGraph.update();
+    }
 }
 
 function updateTextualAnalysis() {

@@ -9,19 +9,20 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="nav-brand">
-      <img src="Logo_img.jpg" alt="Logo" class="nav-logo">
-      <span class="brand-text">Online Voting System</span>
+    <div class="navbar-brand">
+        <img src="brand_logo.jpg" alt="Brand Logo" class="brand-logo">
+        <h1>Voting Site</h1>
     </div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#about-us">About Us</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="login.html" class="sign-in-btn">Sign In</a></li>
-    </ul>
-    <button id="mode-toggle" class="mode-toggle-btn" aria-label="Toggle dark mode">🌙</button>
-
-  </nav>
+    <div class="nav-container">
+        <ul class="nav-links">
+            <li><a href="heropage.html">Home</a></li>
+            <li><a href="div_1.html">Polls</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="div_1.html#announcements">Announcements</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+</nav>
   
 
   <!-- Hero Section -->
@@ -121,13 +122,7 @@
   </footer>
 
   <script src="heropage.js"></script>
-  <script>
-    const toggleBtn = document.getElementById('mode-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    });
-    </script>
+
     
 </body>
 </html>
