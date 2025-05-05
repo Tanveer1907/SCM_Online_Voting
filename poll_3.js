@@ -34,10 +34,9 @@ function createChart() {
             datasets: [{
                 label: 'Votes',
                 data: Object.values(votes),
-                backgroundColor: [
-                    '#43c6ac', '#191654', '#ff6b6b', '#4ecdc4', '#6c5ce7'
-                ],
-                borderWidth: 0
+                backgroundColor: 'rgba(0, 123, 255, 0.7)',  // Blue fill
+                borderColor: 'rgba(0, 123, 255, 1)',        // Blue border
+                borderWidth: 1
             }]
         },
         options: {
