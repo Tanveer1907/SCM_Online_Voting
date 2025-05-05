@@ -2,44 +2,150 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0 2rem 2rem 2rem; /* padding left/right and bottom */
     box-sizing: border-box;
+    background: linear-gradient(120deg, #eaf4ff 0%, #f7fafd 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 85px; /* Position below navbar */
+    left: 20px;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #0d47a1;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 99;
+}
+
+.back-button:hover {
+    background-color: #083378;
+    transform: translateY(-2px);
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed; /* Fix the navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0d47a1;
+    color: white;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 490px;
+    gap: 1rem;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+    padding: 0.5rem;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #FFD700;
+}
+
+.poll-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: nowrap; /* Disable wrapping */
+    margin-top: 130px;
+    width: 100%;
+    max-width: 900px; /* Ensure enough width */
+}
+
 
 /* Quiz Section */
 .quiz-section {
     padding: 2rem;
     text-align: center;
-    background-color: #f9f9f9;
-    width: 100%;  
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
 .quiz-section h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: #0d47a1;
+    margin-bottom: 1rem;
 }
 
 .quiz-section p {
     font-size: 1rem;
-    margin-bottom: 1rem;
     color: #555;
+    margin-bottom: 1.5rem;
 }
 
 .quiz {
-    background-color: #fff;
+    background-color: #f9f9f9;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    display: inline-block;
     text-align: left;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .quiz p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    color: #333;
 }
 
 .options {
@@ -49,18 +155,19 @@ body {
 }
 
 .options button {
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     font-size: 1rem;
     border: 1px solid #007BFF;
     background-color: #007BFF;
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .options button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .options button:disabled {
@@ -73,29 +180,47 @@ body {
 /* Analysis Section */
 .analysis-section {
     padding: 2rem;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
 .analysis-section h2 {
-    text-align: center;
+    font-size: 1.5rem;
+    color: #0d47a1;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .analysis-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .graph {
-    flex: 1;
+    text-align: center;
 }
 
 .text-analysis {
-    flex: 1;
-    background-color: #fff;
+    background-color: #f9f9f9;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .poll-container {
+        flex-direction: column;
+        margin-top: 140px;
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+    }
 }
