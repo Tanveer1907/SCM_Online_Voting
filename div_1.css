@@ -133,9 +133,33 @@ body {
 
 .left-rectangular-div h2 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin: 0.5rem 0 1.5rem 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0d47a1;
+    position: relative;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.left-rectangular-div h2::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #0d47a1, #76a5fa);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.left-rectangular-div h2::before {
+    content: "📢";
+    display: block;
+    margin-bottom: 0.3rem;
     font-size: 1.5rem;
-    color: #333;
 }
 
 .lorem-item {
@@ -225,8 +249,17 @@ main {
 .why-vote {
     padding: 2rem;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9; /* Changed to a whitish color similar to other divs */
     margin-top: 3rem; /* Add space above the section */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e6e6e6;
+}
+
+.why-vote h2 {
+    color: #0d47a1;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .why-vote .content {
@@ -240,11 +273,15 @@ main {
 .why-vote .image img {
     max-width: 300px;
     border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .why-vote .text {
     max-width: 500px;
     text-align: left;
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.05rem;
 }
 
 /* Modal Styles */
