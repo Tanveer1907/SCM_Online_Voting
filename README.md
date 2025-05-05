@@ -39,8 +39,8 @@ In college elections, lack of transparency, manual errors, and inefficient resul
 ## 👥 Contributors
 
 - [Tanveer](https://github.com/Tanveer1907)
-- [Riya] 
-- [Ruhani]
+- [Riya](https://github.com/RiyaSood23)
+- [Ruhani](https://github.com/RuhaniBajaj)
 
 ## 📜 License
 
