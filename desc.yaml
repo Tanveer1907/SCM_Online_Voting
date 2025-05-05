@@ -1,0 +1,25 @@
+loginPage:
+  title: "Online Voting Zone"
+  layout: split
+  leftPane:
+    image: true
+    quote: true
+  rightPane:
+    logo: true
+    tabs: ["Login", "Sign Up"]
+    forms:
+      login: [email, password]
+      signup: [name, email, password, confirmPassword]
+    showHidePassword: true
+    passwordStrength: true
+    forgotPassword: true
+    socialLogin: ["Google"]
+  validation:
+    password:
+      minLength: 8
+      upper: true
+      lower: true
+      digit: true
+      special: true
+      noSpaces: true
+  storage: localStorage
