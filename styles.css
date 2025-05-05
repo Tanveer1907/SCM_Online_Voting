@@ -1,38 +1,14 @@
 /* ===========================
-   COLOR VARIABLES & DARK MODE
+   COLOR VARIABLES
    =========================== */
    :root {
-    --bg-main: #f8fafc;
-    --bg-section: #edf2ff;
-    --bg-card: #fff;
-    --bg-navbar: #fff;
-    --bg-footer: #e3f2fd;
-    --text-main: #0d47a1;
-    --text-secondary: #333;
-    --text-inverse: #fff;
+    --blue-primary: #0d47a1;
+    --blue-light: #1565c0;
+    --blue-lighter: #bbdefb;
+    --white: #ffffff;
+    --gray-dark: #333333;
     --shadow: 0 2px 16px rgba(0,0,0,0.04);
     --shadow-hover: 0 8px 24px rgba(0,0,0,0.10);
-    --accent: #1565c0;
-    --border-card: #d0e5ff;
-    --bg-poll: rgba(219, 234, 254, 0.93);
-    --bg-hero-gradient: linear-gradient(120deg, #add8e6aa 0%, #7b68ee99 100%);
-  }
-  
-  body.dark-mode {
-    --bg-main: #181c23;
-    --bg-section: #23283a;
-    --bg-card: #23283a;
-    --bg-navbar: #1b2030;
-    --bg-footer: #1b2030;
-    --text-main: #e3f2fd;
-    --text-secondary: #cfd8dc;
-    --text-inverse: #23283a;
-    --shadow: 0 2px 16px rgba(0,0,0,0.24);
-    --shadow-hover: 0 8px 24px rgba(0,0,0,0.30);
-    --accent: #90caf9;
-    --border-card: #394867;
-    --bg-poll: rgba(35, 40, 58, 0.93);
-    --bg-hero-gradient: linear-gradient(120deg, #23283a 0%, #181c23 100%);
   }
   
   /* ===========================
@@ -47,40 +23,29 @@
   
   body {
     min-height: 100vh;
-    background: var(--bg-hero-gradient), url('Voting_heropage_img.png') center/cover no-repeat fixed;
-    color: var(--text-secondary);
+    background: var(--blue-lighter);
+    color: var(--gray-dark);
     position: relative;
-  }
-  
-  /* Overlay for background */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--bg-hero-gradient);
-    z-index: 0;
-    pointer-events: none;
-  }
-  
-  body > * {
-    position: relative;
-    z-index: 1;
+    padding-top: 70px; /* To avoid content hidden behind fixed navbar */
   }
   
   /* ===========================
      NAVBAR
      =========================== */
   .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--blue-primary);
+    color: var(--white);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--bg-navbar);
-    border-bottom: 2px solid var(--bg-footer);
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     border-radius: 0 0 16px 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    padding: 1.2rem 2.5rem 1.2rem 0.8rem;
-    max-width: 100vw;
-    width: 100%;
   }
   
   .nav-brand {
@@ -92,15 +57,15 @@
   .nav-logo {
     display: block;
     height: 42px;
-    width: auto;
-    margin-right: 0.5rem;
-    margin-left: 0;
+    width: 42px;
+    border-radius: 50%;
+    object-fit: cover;
   }
   
   .brand-text {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--text-main);
+    color: var(--white);
     letter-spacing: 0.5px;
   }
   
@@ -111,67 +76,61 @@
     list-style: none;
   }
   
+  .nav-links li {
+    display: inline-block;
+  }
+  
   .nav-links a {
     text-decoration: none;
-    color: var(--text-main);
+    color: var(--white);
     font-weight: 500;
     font-size: 1.1rem;
-    transition: color 0.2s;
+    padding: 0.5rem 0.75rem;
+    transition: color 0.3s ease;
+    white-space: nowrap;
   }
   
-  .nav-links a:hover {
-    color: var(--accent);
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: var(--blue-lighter);
+    outline: none;
   }
   
+  /* Sign In button styling */
   .sign-in-btn {
-    background-color: var(--text-main);
-    color: var(--text-inverse) !important;
+    background-color: var(--white);
+    color: var(--blue-primary) !important;
     padding: 0.5rem 1.2rem;
     border-radius: 5px;
     font-weight: 600;
     font-size: 1.05rem;
     border: none;
-    transition: background 0.2s;
+    transition: background-color 0.3s ease, color 0.3s ease;
     margin-left: 1rem;
-  }
-  
-  .sign-in-btn:hover {
-    background: var(--accent);
-  }
-  
-  /* ===========================
-     DARK MODE TOGGLE BUTTON
-     =========================== */
-  .mode-toggle-btn {
-    background: none;
-    border: none;
-    font-size: 1.7rem;
     cursor: pointer;
-    margin-left: 1.5rem;
-    color: var(--text-main);
-    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  
+  .sign-in-btn:hover,
+  .sign-in-btn:focus {
+    background-color: var(--blue-lighter);
+    color: var(--blue-primary) !important;
     outline: none;
   }
-  body.dark-mode .mode-toggle-btn {
-    color: var(--text-main);
-  }
   
   /* ===========================
-     MAIN SECTIONS
+     GENERAL LAYOUT & SECTIONS
      =========================== */
   .hero, .about, .testimonials, .popular-polls {
-    background: var(--bg-section);
+    background: var(--white);
     border-radius: 16px;
     box-shadow: var(--shadow);
     margin: 2rem auto;
     padding: 3rem 2rem;
     max-width: 1200px;
-    color: var(--text-secondary);
+    color: var(--gray-dark);
   }
   
-  /* ===========================
-     FLEX SECTIONS
-     =========================== */
   .flex-section {
     display: flex;
     align-items: center;
@@ -200,7 +159,7 @@
   .center-heading {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: var(--text-main);
+    color: var(--blue-primary);
     font-size: 2.2rem;
   }
   
@@ -222,19 +181,19 @@
   
   .hero-left h1 {
     font-size: 2.8rem;
-    color: var(--text-main);
+    color: var(--blue-primary);
   }
   
   .hero-left p {
     margin: 1rem 0;
-    color: var(--text-secondary);
+    color: var(--gray-dark);
     font-size: 1.2rem;
   }
   
-  /* Get Started Button - Larger and Rises on Hover */
+  /* Get Started Button */
   .get-started-btn {
-    background-color: var(--text-main);
-    color: var(--text-inverse);
+    background-color: var(--white);
+    color: var(--blue-primary);
     padding: 1.2rem 2.5rem;
     border: none;
     border-radius: 10px;
@@ -242,8 +201,10 @@
     font-weight: 600;
     cursor: pointer;
     margin-top: 1.5rem;
-    transition: 
-      transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1), 
+    background: var(--blue-light);
+    color: var(--white);
+    transition:
+      transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1),
       box-shadow 0.25s cubic-bezier(0.4, 0.2, 0.2, 1),
       background 0.2s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -251,7 +212,8 @@
   }
   
   .get-started-btn:hover {
-    background: var(--accent);
+    background: var(--blue-light);
+    color: var(--white);
     transform: translateY(-10px);
     box-shadow: var(--shadow-hover);
   }
@@ -263,21 +225,22 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 2rem;
+    box-shadow: var(--shadow);
   }
   
   .stat-box {
-    background: var(--bg-card);
+    
+    background-color: var(--blue-lighter);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: var(--shadow);
     text-align: center;
     width: 150px;
-    color: var(--text-secondary);
+    color: var(--gray-dark);
   }
-<<<<<<< HEAD
   
   /* ===========================
-     DEMO SECTION (Centered)
+     DEMO SECTION
      =========================== */
   .demo-section {
     text-align: center;
@@ -287,7 +250,7 @@
   .demo-section h3 {
     text-align: center;
     margin-bottom: 1rem;
-    color: var(--text-main);
+    color: var(--blue-primary);
     font-size: 1.6rem;
     font-weight: 600;
   }
@@ -308,7 +271,7 @@
   .popular-polls {
     padding: 3rem 2rem;
     text-align: center;
-    background: var(--bg-poll);
+    background: var(--white);
     border-radius: 16px;
     box-shadow: var(--shadow);
     max-width: 1200px;
@@ -324,13 +287,13 @@
   }
   
   .poll-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-card);
+    background-color: var(--blue-lighter);
+    border: 1px solid var(--blue-light);
     padding: 1.2rem;
     border-radius: 10px;
     width: 250px;
     box-shadow: var(--shadow);
-    color: var(--text-secondary);
+    color: var(--gray-dark);
   }
   
   /* ===========================
@@ -339,8 +302,9 @@
   .about p {
     max-width: 700px;
     margin: 0 auto;
-    color: var(--text-secondary);
+    color: var(--gray-dark);
     font-size: 1.15rem;
+    
   }
   
   /* ===========================
@@ -352,38 +316,39 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 2rem;
+    
   }
   
   .testimonial {
-    background-color: var(--bg-card);
+    background-color: var(--blue-lighter);
     border-radius: 10px;
     padding: 1.5rem;
     width: 250px;
     box-shadow: var(--shadow);
-    color: var(--text-secondary);
+    color: var(--gray-dark);
   }
   
   .testimonial h4 {
     margin-top: 1rem;
-    color: var(--text-main);
+    color: var(--blue-primary);
   }
   
   /* ===========================
      FOOTER
      =========================== */
   footer {
-    background-color: var(--bg-footer);
+    background-color: var(--blue-lighter);
     text-align: center;
     padding: 1rem;
     border-radius: 16px 16px 0 0;
     margin: 2rem auto 0 auto;
     max-width: 1200px;
     box-shadow: 0 -2px 8px rgba(0,0,0,0.02);
-    color: var(--text-main);
+    color: var(--blue-primary);
   }
   
   /* ===========================
-     RISE ON HOVER EFFECT
+     HOVER EFFECTS
      =========================== */
   .stat-box,
   .poll-card,
@@ -391,8 +356,8 @@
   .about .section-img,
   .about .section-content,
   .get-started-btn {
-    transition: 
-      transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1), 
+    transition:
+      transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1),
       box-shadow 0.25s cubic-bezier(0.4, 0.2, 0.2, 1);
     will-change: transform, box-shadow;
   }
@@ -404,6 +369,7 @@
   .about .section-content:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-hover);
+    cursor: pointer;
   }
   
   /* ===========================
@@ -453,54 +419,3 @@
     }
   }
   
-=======
-}
-
-
-/* Hover effect to rise the sections */
-.about, .testimonials, .stats-grid {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-/* Add smooth transition to each testimonial card */
-.testimonial {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Lift and add shadow on hover */
-.testimonial:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-
-/* Smooth transition for each stat box */
-.stat-box {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Lift and shadow on hover */
-.stat-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.poll-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.poll-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
->>>>>>> heropg
